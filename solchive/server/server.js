@@ -181,7 +181,6 @@ app.post('/api/comment', (req, res)=>{
     var comment4=req.body.comment4;
     var comment5=req.body.comment5;
 
-    console.log(name1+", "+name2+", "+name3+", "+name4+", "+name5+", "+comment1+", "+comment2+", "+comment3+", "+comment4+", "+comment5);
     var sql={name1, comment1, name2, comment2, name3, comment3, name4, comment4, name5, comment5, project_id}
     var query=connection.query('INSERT INTO comment SET ?', sql, (err,rows, fields) => {
         res.send(rows);
