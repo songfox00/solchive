@@ -60,7 +60,7 @@ app.use((req, res, next) => {
 
 //passport.serialize
 passport.serializeUser((user, done)=>{
-    console.log('passport sessoion save: ', user.user_id);
+    console.log('passport session save: ', user.user_id);
     done(null, user.user_id);
 })
 
@@ -93,8 +93,8 @@ app.post('/chkserver', (req, res, next)=>{
 		if (!user) return res.status(401).json(info.message);
 
 		req.logIn(user, function(err) {
-      if (err) { return next(err); }
-      return res.json(user);
+        if (err) { return next(err); }
+        return res.json(user);
     });
 
     })(req, res, next);
@@ -111,7 +111,7 @@ var storage=multer.diskStorage({
         cb(null, '../public/upload')
     },
     filename: (req, file, cb) => {
-        cb(null, /*Date.now()+ '-' + */ file.originalname)
+        cb(null, /*Date.now()+ '-'*/ + file.originalname)
     }
 })
 const upload = multer({storage: storage});
